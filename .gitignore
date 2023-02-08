@@ -1,0 +1,25 @@
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+*.tfvars
+*/*.tfvars
+*_config
+
+
+# go test
+test/vendor
+test/*.lock
+test/*.xml
+test/Gopkg.lock
+test/Gopkg.toml
+
+.idea
+
+*.lock.hcl
+
+

@@ -1,0 +1,24 @@
+﻿@page
+@model MyWebApp.Pages.Challenge2CodeModel
+@{
+    ViewData["Title"] = "Challenge 2 Code with Explanation";
+}
+<table>
+    <tr>
+        <td>
+            Environment: ASP.Net Core WebApp with Framework .Net 6.0
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br />
+            <b> Code Explanation:</b>
+            <p>
+                The code defines a Razor Pages Model Challenge2Model which is used to retrieve articles from the URL https://news.ycombinator.com/. The retrieved articles are stored in a property Articles of type List<string>. The method OnGet is used to fetch the articles from the URL asynchronously using an instance of HttpClient and parse the HTML response using HtmlAgilityPack. The method selects the article nodes using an XPath expression and stores the outer HTML of the first 20 article nodes in the Articles property. If there are less than 20 article nodes, it stores all the nodes.
+                    <a asp-page="/Challenge2">Run Code</a>
+            </p>
+            <br/>
+            
+        </td>
+    </tr>
+</table>

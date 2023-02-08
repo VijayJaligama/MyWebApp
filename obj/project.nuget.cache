@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "23j4vOeYPGmQ9LSNie86P2eqb+M1+W9l5E81HOWdpTVw/Mb62oj7asWYGF5ot1LG5W4p3DFGKtLzgm4jZ8U6XA==",
+  "success": true,
+  "projectFilePath": "G:\\MyProjects\\KPMG_CHALLENGE\\MyWebApp\\MyWebApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\my pc\\.nuget\\packages\\htmlagilitypack\\1.11.46\\htmlagilitypack.1.11.46.nupkg.sha512",
+    "C:\\Users\\my pc\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512"
+  ],
+  "logs": []
+}

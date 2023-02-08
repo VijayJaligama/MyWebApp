@@ -1,0 +1,127 @@
+﻿@page
+@model MyWebApp.Pages.Challenge3FindingsModel
+@{
+}
+<table>
+    <tr>
+        <td>
+            My Findings: Based on IP: 59.219.254.101
+        </td>
+    </tr>
+    <tr>
+
+        <td> <b>My top 3 detailed findings:</b>
+             <br />	1. Security: <br />
+             
+            <br />* Lack of user authentication and authorization: Some requests do not contain a username, indicating that the client's website may not have proper authentication and authorization mechanisms in place.
+            <br />* Insecure data transfer: The logs show that the client's website is using HTTP instead of HTTPS, which is not secure for transferring sensitive data.
+            <br />* Vulnerable software: Some requests are being made using older versions of web browsers and operating systems, which may contain vulnerabilities that could be exploited.
+            <br />* Lack of input validation: Some requests contain sensitive data, such as the "DELETE /admin/remove_user" request, which could potentially contain malicious input if proper validation mechanisms are not in place.
+            <br />* Inadequate rate limiting: There are multiple requests being made from the same IP address in a short time period, which could indicate an attempt to perform a Denial of Service (DoS) attack.
+            <br />
+            <br />	2. Performance: The log entries contain requests with a HTTP response status code of 403 (Forbidden). This could indicate that clients are frequently making unauthorized requests, which could put extra load on the server and impact its performance.
+            <br />
+            <br />	3. Access control: The log entries contain requests with a HTTP method of DELETE, such as "DELETE /cart". This could indicate that clients are able to delete data on the server, which could be a security risk if unauthorized clients are able to make these requests. It may be necessary to implement measures to limit who is able to make these requests.
+
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br /><br />
+            <b>Recommendations:</b>
+            <br />
+            <br />	1. Implement proper authentication and authorization mechanisms to ensure that only authorized users can perform sensitive actions.
+            <br />	2. Use HTTPS for all data transfers to ensure that sensitive data is protected during transmission.
+            <br />	3. Regularly review and update security measures to ensure that the website remains secure against evolving threats.
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "PUT /admin/add_product HTTP/1.0" 200 5048 "-" "Mozilla/5.0 (X11; Ubuntu; Linux i686 on x86_64; rv:50.0) Gecko/20100101 Firefox/50.0" 1577
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "DELETE /cart HTTP/1.0" 200 5020 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:47.0) Gecko/20100101 Firefox/47.0" 2552
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "POST /admin/remove_user HTTP/1.0" 200 5024 "https://scott.com/homepage/" "Mozilla/5.0 (X11; Ubuntu; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36" 4314
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "POST /login HTTP/1.0" 200 5035 "https://scott.com/homepage/" "Mozilla/5.0 (X11; Linux i686 on x86_64; rv:49.0) Gecko/20100101 Firefox/49.0" 561
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "DELETE /admin/add_user HTTP/1.0" 200 5029 "https://scott.com/homepage/" "Mozilla/5.0 (Windows NT 6.2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36" 232
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "DELETE /admin/add_user HTTP/1.0" 403 5013 "https://scott.com/homepage/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:47.0) Gecko/20100101 Firefox/47.0" 3501
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "GET /admin HTTP/1.0" 200 5000 "https://scott.com/homepage/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:49.0) Gecko/20100101 Firefox/49.0" 256
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "GET /cart HTTP/1.0" 403 5060 "https://scott.com/homepage/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:49.0) Gecko/20100101 Firefox/49.0" 3583
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "DELETE /admin/remove_user HTTP/1.0" 504 4993 "-" "Mozilla/5.0 (X11; Linux i686; rv:51.0) Gecko/20100101 Firefox/51.0" 4710
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "POST /register HTTP/1.0" 200 5101 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36" 1212
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "POST /admin HTTP/1.0" 403 4966 "https://scott.com/homepage/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:46.0) Gecko/20100101 Firefox/46.0" 3144
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "POST /purchase/completed HTTP/1.0" 200 5038 "https://scott.com/homepage/" "Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.96 Safari/537.36" 2907
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "POST /login HTTP/1.0" 200 4860 "https://scott.com/homepage/" "Mozilla/5.0 (Windows NT 5.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.120 Safari/537.36" 3059
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "PUT /admin/remove_user HTTP/1.0" 200 4863 "https://scott.com/homepage/" "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)" 4173
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "GET /register HTTP/1.0" 200 4969 "https://scott.com/homepage/" "Mozilla/5.0 (X11; Ubuntu; Linux i686 on x86_64; rv:50.0) Gecko/20100101 Firefox/50.0" 3608
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "GET /purchase/completed HTTP/1.0" 304 4987 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:48.0) Gecko/20100101 Firefox/48.0" 4632
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "DELETE /purchase HTTP/1.0" 200 4961 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36" 3331
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "GET /cart HTTP/1.0" 403 4966 "https://scott.com/homepage/" "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" 2757
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "PUT /admin/remove_product HTTP/1.0" 200 5041 "https://scott.com/homepage/" "Mozilla/5.0 (Windows NT 6.1; rv:47.0) Gecko/20100101 Firefox/47.0" 735
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "GET /cart HTTP/1.0" 403 4944 "https://scott.com/homepage/" "Mozilla/5.0 (X11; Ubuntu; Linux i686 on x86_64; rv:51.0) Gecko/20100101 Firefox/51.0" 1788
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "DELETE /login HTTP/1.0" 200 4955 "-" "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36" 2532
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "POST /admin/add_user HTTP/1.0" 304 5052 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.96 Safari/537.36" 4250
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "PUT /admin/add_user HTTP/1.0" 403 4947 "-" "Mozilla/5.0 (Windows NT 6.2; WOW64; rv:46.0) Gecko/20100101 Firefox/46.0" 230
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "PUT /cart HTTP/1.0" 200 5027 "-" "Mozilla/5.0 (Windows NT 10.0; rv:51.0) Gecko/20100101 Firefox/51.0" 4773
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "GET /admin HTTP/1.0" 200 4997 "-" "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" 2135
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "GET /register HTTP/1.0" 200 5029 "-" "Mozilla/5.0 (X11; Linux i686 on x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.101 Safari/537.36" 687
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "GET /admin HTTP/1.0" 504 5032 "https://scott.com/homepage/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.110 Safari/537.36" 2321
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "PUT /admin/remove_user HTTP/1.0" 200 4984 "-" "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36" 3131
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "GET /purchase/completed HTTP/1.0" 500 4999 "https://scott.com/homepage/" "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" 992
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "GET /admin/remove_product HTTP/1.0" 304 5083 "https://scott.com/homepage/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" 571
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "POST /login HTTP/1.0" 200 4949 "https://scott.com/homepage/" "Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 6.2; WOW64; Trident/4.0)" 2724
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "POST /admin/add_product HTTP/1.0" 200 4979 "https://scott.com/homepage/" "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.3; WOW64; Trident/5.0)" 553
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "GET /admin/add_product HTTP/1.0" 200 5113 "https://scott.com/homepage/" "Mozilla/5.0 (Windows NT 10.0; rv:45.0) Gecko/20100101 Firefox/45.0" 3334
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "GET /admin/add_user HTTP/1.0" 404 4988 "https://scott.com/homepage/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.99 Safari/537.36" 1746
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "GET /admin/add_user HTTP/1.0" 200 4993 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:49.0) Gecko/20100101 Firefox/49.0" 1340
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "DELETE /api HTTP/1.0" 404 4936 "https://scott.com/homepage/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:47.0) Gecko/20100101 Firefox/47.0" 4924
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "DELETE /admin HTTP/1.0" 504 5014 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36" 4184
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "DELETE /purchase/completed HTTP/1.0" 200 5046 "https://scott.com/homepage/" "Mozilla/5.0 (Windows NT 10.0; rv:50.0) Gecko/20100101 Firefox/50.0" 2993
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "PUT /admin/remove_user HTTP/1.0" 502 4956 "-" "Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko" 154
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "GET /api HTTP/1.0" 500 4940 "https://scott.com/homepage/" "Mozilla/5.0 (X11; Linux i686 on x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36" 1533
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "GET /admin HTTP/1.0" 200 4966 "https://scott.com/homepage/" "Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 5.1; WOW64; Trident/4.0)" 2375
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "GET /login HTTP/1.0" 304 4994 "-" "Mozilla/5.0 (X11; Linux i686 on x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36" 4470
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "GET /admin/add_product HTTP/1.0" 404 5112 "https://scott.com/homepage/" "Mozilla/5.0 (Windows NT 5.1; Win64; x64; rv:46.0) Gecko/20100101 Firefox/46.0" 389
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "PUT /login HTTP/1.0" 200 4951 "https://scott.com/homepage/" "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.110 Safari/537.36" 3271
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "POST /login HTTP/1.0" 200 4993 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.114 Safari/537.36" 1052
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "PUT /login HTTP/1.0" 200 4971 "-" "Mozilla/5.0 (X11; Linux i686 on x86_64; rv:45.0) Gecko/20100101 Firefox/45.0" 4755
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "GET /admin/add_product HTTP/1.0" 504 4985 "https://scott.com/homepage/" "Mozilla/5.0 (X11; Linux i686 on x86_64; rv:48.0) Gecko/20100101 Firefox/48.0" 667
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "PUT /admin/add_user HTTP/1.0" 200 5026 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0" 3458
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "PUT /admin/add_user HTTP/1.0" 200 5033 "https://scott.com/homepage/" "Mozilla/5.0 (X11; Ubuntu; Linux i686 on x86_64; rv:47.0) Gecko/20100101 Firefox/47.0" 688
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "POST /admin/remove_user HTTP/1.0" 504 5083 "https://scott.com/homepage/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0" 208
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "DELETE /admin/remove_product HTTP/1.0" 502 5019 "https://scott.com/homepage/" "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)" 126
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "DELETE /cart HTTP/1.0" 304 5027 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36" 226
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "DELETE /api HTTP/1.0" 404 4964 "https://scott.com/homepage/" "Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36" 2397
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "POST /admin/add_user HTTP/1.0" 403 5038 "https://scott.com/homepage/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:51.0) Gecko/20100101 Firefox/51.0" 3271
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "DELETE /admin HTTP/1.0" 504 5011 "https://scott.com/homepage/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.127 Safari/537.36" 1494
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "GET /purchase HTTP/1.0" 502 5015 "https://scott.com/homepage/" "Mozilla/5.0 (X11; Linux i686 on x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" 536
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "POST /admin/add_product HTTP/1.0" 502 5017 "https://scott.com/homepage/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36" 2009
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "GET /admin/add_product HTTP/1.0" 500 4999 "-" "Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:46.0) Gecko/20100101 Firefox/46.0" 2223
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "DELETE /admin/add_product HTTP/1.0" 200 4944 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" 4407
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "PUT /cart HTTP/1.0" 200 5011 "-" "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)" 2239
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "POST /admin/add_user HTTP/1.0" 200 4940 "https://scott.com/homepage/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.81 Safari/537.36" 3580
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "GET /admin/add_product HTTP/1.0" 404 5053 "-" "Mozilla/5.0 (Windows NT 6.1; rv:48.0) Gecko/20100101 Firefox/48.0" 1861
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "POST /cart HTTP/1.0" 200 5035 "https://scott.com/homepage/" "Mozilla/5.0 (Windows NT 5.1; Win64; x64; rv:46.0) Gecko/20100101 Firefox/46.0" 1099
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "POST /purchase HTTP/1.0" 404 4992 "-" "Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36" 2957
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "POST /admin HTTP/1.0" 404 4985 "https://scott.com/homepage/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" 1504
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "PUT /login HTTP/1.0" 200 5022 "-" "Mozilla/5.0 (X11; Ubuntu; Linux i686 on x86_64; rv:49.0) Gecko/20100101 Firefox/49.0" 4094
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "GET /login HTTP/1.0" 200 5005 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0" 2210
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "PUT /admin/add_user HTTP/1.0" 200 4971 "-" "Mozilla/5.0 (X11; Linux i686 on x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36" 3235
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "GET /admin/remove_product HTTP/1.0" 304 4890 "https://scott.com/homepage/" "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.78 Safari/537.36" 911
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "GET /login HTTP/1.0" 200 4969 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:47.0) Gecko/20100101 Firefox/47.0" 4615
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "DELETE /admin/remove_user HTTP/1.0" 500 4912 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.111 Safari/537.36" 3825
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "DELETE /admin/remove_product HTTP/1.0" 200 5054 "-" "Mozilla/5.0 (Windows NT 6.1; rv:47.0) Gecko/20100101 Firefox/47.0" 4490
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "GET /purchase/completed HTTP/1.0" 200 4941 "-" "Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" 67
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "DELETE /admin/add_product HTTP/1.0" 304 5063 "https://scott.com/homepage/" "Mozilla/5.0 (X11; Linux i686; rv:49.0) Gecko/20100101 Firefox/49.0" 2028
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "DELETE /cart HTTP/1.0" 504 5043 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:49.0) Gecko/20100101 Firefox/49.0" 449
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "GET /admin/remove_product HTTP/1.0" 200 5069 "https://scott.com/homepage/" "Mozilla/5.0 (X11; Ubuntu; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.96 Safari/537.36" 2116
+            <br />	59.219.254.101 -  - [2023-01-26 15:45:45 +00:00] "POST /login HTTP/1.0" 200 5013 "https://scott.com/homepage/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:47.0) Gecko/20100101 Firefox/47.0" 4600
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "POST /admin/remove_product HTTP/1.0" 404 4984 "https://scott.com/homepage/" "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.80 Safari/537.36" 791
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "GET /admin/add_user HTTP/1.0" 200 4956 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:49.0) Gecko/20100101 Firefox/49.0" 4923
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "GET /purchase HTTP/1.0" 403 4966 "https://scott.com/homepage/" "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 5.1; WOW64; Trident/6.0)" 3145
+            <br />	59.219.254.101 - Lowri - [2023-01-26 15:45:45 +00:00] "GET /admin/remove_product HTTP/1.0" 200 4978 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:46.0) Gecko/20100101 Firefox/46.0" 4566
+
+        </td>
+    </tr>
+</table>
